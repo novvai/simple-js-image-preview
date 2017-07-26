@@ -1,0 +1,24 @@
+      
+.label-pos {
+    position: relative;
+}
+span.edit-icon{
+    position: absolute;
+    top:5px;
+    left:5px;
+    color: #fff;
+    background: rgba(103, 103, 104 ,0.7);
+    border-bottom-right-radius: 5px; 
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid  #ddd;
+    padding: 5%;
+    z-index: 10;
+    -webkit-transition: 0.5s  all;
+    -moz-transition: 0.5s  all;
+    transition: 0.5s  all;
+}
+
+.label-pos:hover span.edit-icon{
+    padding: 10%;
+    font-size: 1.5em;
+}
