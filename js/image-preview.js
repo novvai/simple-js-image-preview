@@ -1,6 +1,6 @@
 Object.defineProperty(Object.prototype, 'previewInit',{
   value : function(customAtr = false) {
-            options = {container : $(this), name : 'image_file', placeholder:"http://placehold.it/300x300"};
+            options = {container : $(this), name : 'image_file', placeholder:"http://placehold.it/300x300", errorMsg:'Container supports only image type: jpg, png, svg, etc.', errMsgTime:3000};
         if (customAtr) {
             for (var attrname in customAtr) { options[attrname] = customAtr[attrname];}
         }
@@ -15,8 +15,17 @@ Object.defineProperty(Object.prototype, 'previewInit',{
             file.onload = function() {
                 container.find('img').attr('src', file.result);
             }
-            if (image) {
+            if (image && image.type.match('image.*')) {
                 file.readAsDataURL(image);
+            }else{
+                var labelWidth = $('.label-pos').width();
+                container.append('<div class="oc-image-error" id="oc-image-err" style="display:none;width:'+labelWidth+'px">'+options.errorMsg+'</div>');
+                $("#oc-image-err").slideDown('normal', function () {
+                    $__this = $(this);
+                    setTimeout(function () {
+                        $__this.slideUp()
+                    }, options.errMsgTime);
+                });
             }
         })
   },

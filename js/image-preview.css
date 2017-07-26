@@ -22,3 +22,12 @@ span.edit-icon{
     padding: 10%;
     font-size: 1.5em;
 }
+
+.oc-image-error {
+    padding: 0 10px;
+    border: 2px solid #e03f2a;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1.02em;
+    background: rgba(226, 32, 6, 0.5);
+}
